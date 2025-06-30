@@ -1,10 +1,23 @@
 {
-  "name": "@langfarm-ticket/shared",
+  "name": "share",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
   "dependencies": {
     "path": "^0.12.7",
     "sparkpost": "^2.1.4"

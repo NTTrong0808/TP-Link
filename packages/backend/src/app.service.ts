@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common'
+import { IExample, LarkBotUrls, LarkService } from 'share'
 import { ApiBuilder } from './lib/api'
 
 @Injectable()
 export class AppService {
-  getHello() {
+  async getHello() {
+    await (LarkService as any).sendMessage((LarkBotUrls as any).exportLogBot, 'Hello, world')
     return ApiBuilder.create().setMessage('Hello, world').setData([]).build()
+  }
+
+  testSharedImport(): IExample {
+    return {}
   }
 }

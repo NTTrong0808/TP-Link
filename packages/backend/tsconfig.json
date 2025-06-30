@@ -20,7 +20,8 @@
     "esModuleInterop": true,
     "paths": {
       "@src/*": ["./src/*"],
-      "@modules/*": ["./src/modules/*"]
+      "@modules/*": ["./src/modules/*"],
+      "share/*": ["../shared/src/*"]
     },
     "types": ["./sst-env.d.ts"],
     "noEmitOnError": false
