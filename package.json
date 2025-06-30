@@ -1,0 +1,19 @@
+{
+  "name": "langfarm-ticket",
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "NODE_OPTIONS=--experimental-require-module npx sst dev",
+    "build": "NODE_OPTIONS=--experimental-require-module npx sst build",
+    "deploy": "npx sst deploy"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "sst": "^3.14.11"
+  }
+}

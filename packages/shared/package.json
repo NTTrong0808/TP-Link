@@ -1,0 +1,16 @@
+{
+  "name": "@langfarm-ticket/shared",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "sparkpost": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.7",
+    "typescript": "^5.8.3"
+  }
+}

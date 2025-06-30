@@ -1,0 +1,264 @@
+import { CASL_ACCESS_KEY } from '@/lib/auth/casl-key'
+
+export const URLS = {
+  AUTH: {
+    SIGN_IN: '/sign-in',
+    SIGN_UP: '/sign-up',
+    FORGOT_PASSWORD: '/forgot-password',
+    RESET_PASSWORD: '/reset-password/:id',
+  },
+
+  HOME: '/',
+
+  TICKET: {
+    INDEX: '/ticket/:id',
+    SCAN: '/ticket/scan',
+    SEARCH: '/ticket/search',
+    HISTORY: '/ticket/history',
+    REDEEM: '/ticket/redeem',
+  },
+
+  VAT: {
+    INDEX: '/input/vat/:bookingId/:bookingVatToken',
+  },
+
+  KIOS: {
+    INDEX: '/kios',
+    EXTEND_DISPLAY: '/extend-display',
+  },
+
+  ADMIN: {
+    DASHBOARD: '/admin/dashboard',
+    USER: {
+      INDEX: '/admin/users',
+      CREATE: '/admin/users/create',
+      EDIT: '/admin/users/:id/edit',
+    },
+    CUSTOMER: {
+      INDEX: '/admin/customers',
+      CREATE: '/admin/customers/create',
+      EDIT: '/admin/customers/:id/edit',
+      DETAIL: '/admin/customers/:id',
+      HISTORY: '/admin/customers/:id/history',
+    },
+    ORDER: {
+      INDEX: '/admin/orders',
+      DETAIL: '/admin/orders/:id',
+    },
+    TICKET: {
+      INDEX: '/admin/tickets',
+      CREATE: '/admin/tickets/create',
+      EDIT: '/admin/tickets/:id/edit',
+      DETAIL: '/admin/tickets/:id',
+    },
+    CALENDAR: {
+      INDEX: '/admin/prices',
+      CREATE: '/admin/prices/create',
+      EDIT: '/admin/prices/:id/edit',
+    },
+    SERVICE: {
+      INDEX: '/admin/services',
+      CREATE: '/admin/services/create',
+      EDIT: '/admin/services/:id/edit',
+    },
+    PROFILE: {
+      CHANGE_PASSWORD: '/admin/profile/change-password',
+    },
+    SALE_CHANNEL: {
+      INDEX: '/admin/sale-channel',
+    },
+
+    FORBIDDEN: '/403',
+    NOT_FOUND: '/404',
+    CONFIGURATION: '/admin/configuration',
+
+    REPORT: {
+      INDEX: '/admin/report',
+      REVENUE_BY_DATE: '/admin/report/revenue-by-date',
+      REVENUE_BY_USER: '/admin/report/revenue-by-user',
+      REVENUE_BY_SERVICE: '/admin/report/revenue-by-service',
+      REVENUE_BY_CHANNEL: '/admin/report/revenue-by-channel',
+      REVENUE_BY_BOOKING: '/admin/report/revenue-by-booking',
+      REVENUE_BY_BOOKING_AND_SERVICE: '/admin/report/revenue-by-booking-and-service',
+      REVENUE_BY_BOOKING_AND_CUSTOMER: '/admin/report/revenue-by-booking-and-customer',
+      REVENUE_BY_CUSTOMER: '/admin/report/revenue-by-customer',
+    },
+
+    NEW_ORDERS: {
+      INDEX: '/admin/new-orders',
+    },
+  },
+
+  HARAVAN_ORDERS: {
+    INDEX: '/private/orders',
+    DETAIL: '/private/orders/:id',
+  },
+
+  PRODUCT_VARIANTS: {
+    INDEX: '/private/product-variants',
+  },
+}
+
+export const URLS_TITLE = {
+  [URLS.AUTH.SIGN_IN]: 'Đăng nhập',
+  [URLS.AUTH.SIGN_UP]: 'Đăng ký',
+  [URLS.AUTH.FORGOT_PASSWORD]: 'Quên mật khẩu',
+  [URLS.AUTH.RESET_PASSWORD]: 'Đặt lại mật khẩu',
+  [URLS.HOME]: 'Trang chủ',
+  [URLS.TICKET.SCAN]: 'Quét vé',
+  [URLS.TICKET.SEARCH]: 'Tìm kiếm vé',
+  [URLS.TICKET.HISTORY]: 'Lịch sử vé',
+  [URLS.ADMIN.USER.INDEX]: 'Quản lý người dùng',
+  [URLS.ADMIN.USER.CREATE]: 'Tạo người dùng',
+  [URLS.ADMIN.USER.EDIT]: 'Chỉnh sửa người dùng',
+  [URLS.ADMIN.CUSTOMER.INDEX]: 'Quản lý khách hàng',
+  [URLS.ADMIN.CUSTOMER.CREATE]: 'Tạo khách hàng',
+  [URLS.ADMIN.CUSTOMER.EDIT]: 'Chỉnh sửa khách hàng',
+  [URLS.ADMIN.CUSTOMER.DETAIL]: 'Chi tiết khách hàng',
+  [URLS.ADMIN.CUSTOMER.HISTORY]: 'Lịch sử thay đổi',
+  [URLS.ADMIN.ORDER.INDEX]: 'Quản lý đơn hàng',
+  [URLS.ADMIN.ORDER.DETAIL]: 'Chi tiết đơn hàng',
+  [URLS.ADMIN.TICKET.INDEX]: 'Quản lý tất cả vé',
+  [URLS.ADMIN.TICKET.CREATE]: 'Tạo vé',
+  [URLS.ADMIN.TICKET.EDIT]: 'Chỉnh sửa vé',
+  [URLS.ADMIN.TICKET.DETAIL]: 'Chi tiết vé',
+  [URLS.ADMIN.CALENDAR.INDEX]: 'Cấu hình giá vé',
+  [URLS.ADMIN.CALENDAR.CREATE]: 'Tạo giá',
+  [URLS.ADMIN.CALENDAR.EDIT]: 'Chỉnh sửa giá',
+  [URLS.ADMIN.SERVICE.INDEX]: 'Quản lí dịch vụ',
+  [URLS.ADMIN.SERVICE.CREATE]: 'Tạo dịch vụ',
+  [URLS.ADMIN.SERVICE.EDIT]: 'Chỉnh sửa dịch vụ',
+  [URLS.ADMIN.PROFILE.CHANGE_PASSWORD]: 'Đổi mật khẩu',
+  [URLS.ADMIN.USER.INDEX]: 'Quản lý người dùng',
+  [URLS.ADMIN.SALE_CHANNEL.INDEX]: 'Quản lý kênh bán',
+  [URLS.ADMIN.DASHBOARD]: 'Bảng điều khiển',
+  [URLS.ADMIN.FORBIDDEN]: 'Không có quyền truy cập',
+  [URLS.ADMIN.NOT_FOUND]: 'Không tìm thấy trang',
+  [URLS.ADMIN.CONFIGURATION]: 'Cấu hình',
+  [URLS.ADMIN.REPORT.INDEX]: 'Quản lý báo cáo',
+  [URLS.ADMIN.NEW_ORDERS.INDEX]: 'Quản lý đơn hàng',
+  [URLS.ADMIN.REPORT.REVENUE_BY_USER]: 'Tổng hợp doanh số bán theo nhân viên',
+  [URLS.ADMIN.REPORT.REVENUE_BY_DATE]: 'Tổng hợp doanh số bán theo ngày',
+  [URLS.ADMIN.REPORT.REVENUE_BY_CHANNEL]: 'Tổng hợp doanh số theo kênh bán',
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING]: 'Tổng hợp doanh số bán theo đơn hàng',
+  [URLS.ADMIN.REPORT.REVENUE_BY_SERVICE]: 'Chi tiết doanh số bán theo mặt hàng',
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING_AND_SERVICE]: 'Chi tiết doanh số bán theo mặt hàng và đơn hàng',
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING_AND_CUSTOMER]: 'Chi tiết doanh số bán theo khách hàng và đơn hàng',
+  [URLS.ADMIN.REPORT.REVENUE_BY_CUSTOMER]: 'Tổng hợp doanh số bán theo khách hàng',
+}
+
+export const REDIRECT_URLS = {}
+
+export const AUTH_GUARD_PROTECTED_PATHS = {
+  // Dashboard
+  [URLS.ADMIN.DASHBOARD]: [CASL_ACCESS_KEY.TICKET_DASHBOARD, CASL_ACCESS_KEY.TICKET_DASHBOARD_VIEW],
+
+  // Ticket paths
+  [URLS.TICKET.SCAN]: [CASL_ACCESS_KEY.TICKET_INSPECTATION, CASL_ACCESS_KEY.TICKET_ACCESS_AND_PERFORM_INSPECTATION],
+  [URLS.TICKET.SEARCH]: [CASL_ACCESS_KEY.TICKET_INSPECTATION, CASL_ACCESS_KEY.TICKET_LOOK_UP_TICKET],
+  [URLS.TICKET.HISTORY]: [CASL_ACCESS_KEY.TICKET_INSPECTATION, CASL_ACCESS_KEY.TICKET_VIEW_HISTORY_SCAN],
+  [URLS.TICKET.REDEEM]: [CASL_ACCESS_KEY.TICKET_INSPECTATION, CASL_ACCESS_KEY.TICKET_LOOK_UP_TICKET],
+
+  // User management
+  [URLS.ADMIN.USER.INDEX]: [CASL_ACCESS_KEY.TICKET_USER, CASL_ACCESS_KEY.TICKET_VIEW_USERS],
+  [URLS.ADMIN.USER.CREATE]: [CASL_ACCESS_KEY.TICKET_USER, CASL_ACCESS_KEY.TICKET_ADD_USER],
+  [URLS.ADMIN.USER.EDIT]: [CASL_ACCESS_KEY.TICKET_USER, CASL_ACCESS_KEY.TICKET_EDIT_USER],
+
+  // Customer management
+  [URLS.ADMIN.CUSTOMER.INDEX]: [CASL_ACCESS_KEY.TICKET_CUSTOMER, CASL_ACCESS_KEY.TICKET_CUSTOMER_VIEW],
+  [URLS.ADMIN.CUSTOMER.CREATE]: [CASL_ACCESS_KEY.TICKET_CUSTOMER, CASL_ACCESS_KEY.TICKET_CUSTOMER_CREATE],
+  [URLS.ADMIN.CUSTOMER.EDIT]: [CASL_ACCESS_KEY.TICKET_CUSTOMER, CASL_ACCESS_KEY.TICKET_CUSTOMER_UPDATE],
+  [URLS.ADMIN.CUSTOMER.DETAIL]: [CASL_ACCESS_KEY.TICKET_CUSTOMER, CASL_ACCESS_KEY.TICKET_CUSTOMER_VIEW_DETAIL],
+  [URLS.ADMIN.CUSTOMER.HISTORY]: [CASL_ACCESS_KEY.TICKET_CUSTOMER, CASL_ACCESS_KEY.TICKET_CUSTOMER_VIEW_DETAIL],
+
+  // Order management
+  [URLS.ADMIN.ORDER.INDEX]: [CASL_ACCESS_KEY.TICKET_ORDER, CASL_ACCESS_KEY.TICKET_ORDER_VIEW],
+  [URLS.ADMIN.ORDER.DETAIL]: [CASL_ACCESS_KEY.TICKET_ORDER, CASL_ACCESS_KEY.TICKET_ORDER_VIEW_DETAIL],
+
+  // Issued ticket management
+  [URLS.ADMIN.TICKET.INDEX]: [CASL_ACCESS_KEY.TICKET_ISSUED_TICKET, CASL_ACCESS_KEY.TICKET_ISSUED_TICKET_VIEW],
+  [URLS.ADMIN.TICKET.DETAIL]: [CASL_ACCESS_KEY.TICKET_ISSUED_TICKET, CASL_ACCESS_KEY.TICKET_ISSUED_TICKET_VIEW_DETAIL],
+
+  // Calendar/Price management
+  [URLS.ADMIN.CALENDAR.INDEX]: [
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE,
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE_VIEW,
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE_BY_DATE,
+  ],
+  [URLS.ADMIN.CALENDAR.CREATE]: [
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE,
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE_BY_DATE,
+  ],
+  [URLS.ADMIN.CALENDAR.EDIT]: [
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE,
+    CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE_BY_DATE,
+  ],
+
+  // Service management
+  [URLS.ADMIN.SERVICE.INDEX]: [
+    CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST,
+    CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST_VIEW,
+  ],
+  [URLS.ADMIN.SERVICE.CREATE]: [
+    CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST,
+    CASL_ACCESS_KEY.TICKET_ADD_SERVICE,
+  ],
+  [URLS.ADMIN.SERVICE.EDIT]: [
+    CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST,
+    CASL_ACCESS_KEY.TICKET_UPDATE_SERVICE,
+  ],
+  [URLS.ADMIN.CONFIGURATION]: [
+    CASL_ACCESS_KEY.TICKET_POS_TERMINAL,
+    CASL_ACCESS_KEY.TICKET_POS_TERMINAL_VIEW,
+    CASL_ACCESS_KEY.TICKET_PAYMENT_METHOD,
+    CASL_ACCESS_KEY.TICKET_PAYMENT_METHOD_VIEW,
+    CASL_ACCESS_KEY.TICKET_SALE_CHANNEL,
+    CASL_ACCESS_KEY.TICKET_SALE_CHANNEL_VIEW,
+  ],
+
+  // Sale channel
+  [URLS.ADMIN.SALE_CHANNEL.INDEX]: [CASL_ACCESS_KEY.TICKET_SALE_CHANNEL, CASL_ACCESS_KEY.TICKET_SALE_CHANNEL_VIEW],
+
+  // Profile
+  [URLS.ADMIN.PROFILE.CHANGE_PASSWORD]: true,
+
+  // Kios
+  [URLS.KIOS.INDEX]: [CASL_ACCESS_KEY.TICKET_OFFLINE_SELL, CASL_ACCESS_KEY.TICKET_OFFLINE_SALE_ACCESS],
+
+  [URLS.ADMIN.REPORT.INDEX]: true,
+
+  // Report paths
+  [URLS.ADMIN.REPORT.REVENUE_BY_DATE]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_DATE_VIEW],
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_BOOKING_VIEW],
+  [URLS.ADMIN.REPORT.REVENUE_BY_SERVICE]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_SERVICE_VIEW],
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING_AND_SERVICE]: [
+    CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_BOOKING_AND_SERVICE_VIEW,
+  ],
+  [URLS.ADMIN.REPORT.REVENUE_BY_CUSTOMER]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_CUSTOMER_VIEW],
+  [URLS.ADMIN.REPORT.REVENUE_BY_BOOKING_AND_CUSTOMER]: [
+    CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_BOOKING_AND_CUSTOMER_VIEW,
+  ],
+  [URLS.ADMIN.REPORT.REVENUE_BY_USER]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_USER_VIEW],
+  [URLS.ADMIN.REPORT.REVENUE_BY_CHANNEL]: [CASL_ACCESS_KEY.TICKET_REPORT_REVENUE_BY_CHANNEL_VIEW],
+} as const
+
+export const AUTH_GUARD_PUBLIC_PATHS = {
+  [URLS.AUTH.SIGN_IN]: true,
+  [URLS.AUTH.SIGN_UP]: true,
+  [URLS.AUTH.FORGOT_PASSWORD]: true,
+  [URLS.AUTH.RESET_PASSWORD]: true,
+  [URLS.TICKET.INDEX]: true,
+  [URLS.VAT.INDEX]: true,
+  [URLS.KIOS.EXTEND_DISPLAY]: true,
+  [URLS.HARAVAN_ORDERS.INDEX]: true,
+  [URLS.HARAVAN_ORDERS.DETAIL]: true,
+  [URLS.PRODUCT_VARIANTS.INDEX]: true,
+} as const
+
+export const AUTH_GUARD_EXCEPTION_PATHS = {
+  [URLS.ADMIN.FORBIDDEN]: true,
+  [URLS.ADMIN.NOT_FOUND]: true,
+  [URLS.HOME]: true,
+} as const
+
+export const LFC_URL = process.env.NEXT_PUBLIC_LFC_URL

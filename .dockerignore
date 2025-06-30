@@ -1,0 +1,7 @@
+
+# sst
+.sst
+
+dist
+node_modules
+packages/backend/node_modules
