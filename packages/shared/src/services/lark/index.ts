@@ -1,9 +1,39 @@
-import { LarkBotUrls } from './constants';
+import { LarkBotUrls } from "./constants";
+
+export interface ILarkService {
+  sendMessage(botUrl: LarkBotUrls, data: string): Promise<any>;
+  getLogMessage(params: ILarkLogMessageParams): string;
+}
+
+export interface ILarkMessagePayload {
+  msg_type: "text";
+  content: {
+    text: string;
+  };
+}
+
+export interface ILarkLogMessageParams {
+  type: "INBOUND" | "OUTBOUND";
+  serviceName: string;
+  status: "✅ Thành công" | "❌ Thất bại";
+  time: string;
+  endpoint: string;
+  action: string;
+  request?: {
+    method: string;
+    headers: Record<string, any>;
+    body: any;
+  };
+  response?: Record<string, any>;
+  traceId?: string;
+  triggeredBy?: string;
+  note?: string;
+}
 
 export class LarkService {
   static async sendMessage(botUrl: LarkBotUrls, data: string): Promise<any> {
-    const payload = {
-      msg_type: 'text',
+    const payload: ILarkMessagePayload = {
+      msg_type: "text",
       content: {
         text: data,
       },
@@ -11,10 +41,10 @@ export class LarkService {
 
     try {
       const response = await fetch(botUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -28,55 +58,27 @@ export class LarkService {
 
       return await response.json();
     } catch (error: any) {
-      return { error: 'send_to_lark', message: error?.message };
+      return { error: "send_to_lark", message: error?.message };
     }
   }
 
-  static getLogMessage({
-    type,
-    serviceName,
-    status,
-    time,
-    endpoint,
-    action,
-    request,
-    response = {},
-    traceId,
-    triggeredBy,
-    note,
-  }: {
-    type: 'INBOUND' | 'OUTBOUND';
-    serviceName: string;
-    status: '✅ Thành công' | '❌ Thất bại';
-    time: string;
-    endpoint: string;
-    action: string;
-    request?: {
-      method: string;
-      headers: Record<string, any>;
-      body: any;
-    };
-    response?: Record<string, any>;
-    traceId?: string;
-    triggeredBy?: string;
-    note?: string;
-  }) {
+  static getLogMessage(params: ILarkLogMessageParams): string {
     const logMessage = `
-📌 [${type}] [${serviceName}] – ${status}
+📌 [${params.type}] [${params.serviceName}] – ${params.status}
 
-🕒 Thời gian: ${time}
-🔗 Endpoint: ${endpoint}
-🎯 Action: ${action}
+🕒 Thời gian: ${params.time}
+🔗 Endpoint: ${params.endpoint}
+🎯 Action: ${params.action}
 
 📤 Request:
-${JSON.stringify(request, null, 2)}
+${JSON.stringify(params.request, null, 2)}
 
 📥 Response:
-${JSON.stringify(response, null, 2)}
+${JSON.stringify(params.response, null, 2)}
 
-🧾 Trace ID: ${traceId || '-'}
-👤 Triggered by: ${triggeredBy || '-'}
-📝 Ghi chú: ${note || '-'}
+🧾 Trace ID: ${params.traceId || "-"}
+👤 Triggered by: ${params.triggeredBy || "-"}
+📝 Ghi chú: ${params.note || "-"}
   `;
     return logMessage;
   }

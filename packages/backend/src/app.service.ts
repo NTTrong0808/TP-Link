@@ -5,7 +5,7 @@ import { ApiBuilder } from './lib/api'
 @Injectable()
 export class AppService {
   async getHello() {
-    await (LarkService as any).sendMessage((LarkBotUrls as any).exportLogBot, 'Hello, world')
+    await LarkService.sendMessage(LarkBotUrls.exportLogBot, 'Hello, world')
     return ApiBuilder.create().setMessage('Hello, world').setData([]).build()
   }
 
