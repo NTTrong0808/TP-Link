@@ -40,39 +40,7 @@ const sidebarItems: PanelSidebarItem[] = [
     isActive: false,
     permissions: [CASL_ACCESS_KEY.TICKET_ORDER_VIEW],
   },
-  {
-    url: URLS.ADMIN.TICKET.INDEX,
-    icon: ClipboardTextIcon,
-    isActive: false,
-    permissions: [CASL_ACCESS_KEY.TICKET_ISSUED_TICKET_VIEW],
-  },
-  {
-    // url: URLS.ADMIN.SERVICE.INDEX,
-    icon: TicketIcon,
-    // isActive: false,
-    // permissions: [CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST],
-    url: URLS.ADMIN.SERVICE.INDEX,
-    isActive: false,
-    permissions: [CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST_VIEW],
-    // children: [
-    //   {
-    //     url: URLS.ADMIN.SERVICE.INDEX,
-    //     isActive: false,
-    //     permissions: [CASL_ACCESS_KEY.TICKET_SERVICE_AND_SERVICE_PRICE_LIST],
-    //   },
-    //   {
-    //     url: URLS.ADMIN.SALE_CHANNEL.INDEX,
-    //     isActive: false,
-    //     permissions: [CASL_ACCESS_KEY.TICKET_SALE_CHANNEL],
-    //   },
-    // ],
-  },
-  {
-    url: URLS.ADMIN.CALENDAR.INDEX,
-    icon: WalletIcon,
-    isActive: false,
-    permissions: [CASL_ACCESS_KEY.TICKET_CONFIG_SERVICE_PRICE_VIEW],
-  },
+
   {
     url: URLS.ADMIN.CONFIGURATION,
     icon: Settings,
@@ -84,17 +52,6 @@ const sidebarItems: PanelSidebarItem[] = [
       CASL_ACCESS_KEY.TICKET_PAYMENT_METHOD_BANK_ACCOUNT_VIEW,
     ],
   },
-  {
-    url: URLS.ADMIN.REPORT.INDEX,
-    icon: PieChartIcon,
-    isActive: false,
-  },
-  // {
-  //   url: '/admin/new-orders',
-  //   icon: ListOrderedIcon,
-  //   isActive: false,
-  //   permissions: [CASL_ACCESS_KEY.TICKET_ORDER, CASL_ACCESS_KEY.TICKET_ORDER_VIEW],
-  // },
 ]
 
 const Layout = ({ children }: PropsWithChildren) => {

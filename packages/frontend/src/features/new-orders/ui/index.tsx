@@ -8,7 +8,6 @@ import { DateRangePicker } from '@/components/ui/date-range-picker'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { toastError } from '@/components/widgets/toast'
 import { URLS } from '@/constants/urls'
-import { STATUS_OPTIONS, VAT_OPTIONS } from '@/features/order/constants/constant'
 import { formatCurrency } from '@/helper'
 import { useAdvancedFilter } from '@/hooks/use-advanced-filter'
 import { PanelView, PanelViewContent, PanelViewHeader } from '@/layouts/panel/panel-view'
@@ -365,7 +364,7 @@ const NewOrderListTable = () => {
       haveFilter: true,
       filterFieldName: 'status',
       filterComponent: 'select',
-      filterOptions: STATUS_OPTIONS ?? [],
+      filterOptions: [],
       filterDataType: 'string',
       meta: {
         columnClassName: '!w-[150px]',
@@ -480,7 +479,7 @@ const NewOrderListTable = () => {
       filterFieldName: 'vatInfo',
       filterComponent: 'select',
       filterDataType: 'string',
-      filterOptions: VAT_OPTIONS ?? [],
+      filterOptions: [],
       meta: {
         columnClassName: '!w-[120px]',
       },
@@ -557,8 +556,8 @@ const NewOrderListTable = () => {
               isCanViewOnlineOrder && !isCanViewOrder && !isCanViewOrderByEmployee
                 ? e.groupSaleChannel === GroupSaleChannel.ONLINE
                 : !isCanViewOrder && !isCanViewOnlineOrder && isCanViewOrderByEmployee
-                ? e.code === SALE_CHANNEL_RETAIL_CODE
-                : true,
+                  ? e.code === SALE_CHANNEL_RETAIL_CODE
+                  : true,
             )
             ?.map((e) => ({
               value: e?._id,

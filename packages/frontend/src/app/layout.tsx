@@ -6,8 +6,6 @@ import type { Metadata } from 'next'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 import { Dialoger } from '@/components/widgets/dialoger'
-import { DraftOrdersProvider } from '@/features/kios/providers/draft-orders-provider'
-import { PrintProvider } from '@/features/print/contexts/print-portal-context'
 import { Suspense } from 'react'
 import { Toaster } from 'sonner'
 import './globals.css'
@@ -44,13 +42,9 @@ export default function RootLayout({
           <NuqsAdapter>
             <ReactQueryProviders>
               <AuthProvider>
-                <DraftOrdersProvider>
-                  <PrintProvider>
-                    {children}
-                    <Dialoger />
-                    <Toaster />
-                  </PrintProvider>
-                </DraftOrdersProvider>
+                {children}
+                <Dialoger />
+                <Toaster />
               </AuthProvider>
             </ReactQueryProviders>
           </NuqsAdapter>

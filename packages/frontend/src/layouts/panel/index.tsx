@@ -28,7 +28,6 @@ import LogoIcon from '@/components/widgets/icons/logo-icon'
 import TopRightArrowIcon from '@/components/widgets/icons/top-right-arrow-icon'
 import UserCircleFilledIcon from '@/components/widgets/icons/user-circle-filled-icon'
 import { URLS, URLS_TITLE } from '@/constants/urls'
-import { usePosTerminal } from '@/features/kios/store/use-pos-terminal'
 import { useCanAccess } from '@/lib/auth/casl'
 import { CASL_ACCESS_KEY } from '@/lib/auth/casl-key'
 import { useAuth } from '@/lib/auth/context'
@@ -221,7 +220,6 @@ export const PanelHeader = ({ user }: PanelHeaderProps) => {
 export const UserDropDown = ({ user }: PanelHeaderProps) => {
   const { signOut, currentUser } = useAuth()
   const router = useRouter()
-  const { removePosTerminal } = usePosTerminal()
 
   const isCanAccess = useCanAccess()
   const profileMenu: PanelHeaderButton[] = useMemo(
@@ -236,7 +234,6 @@ export const UserDropDown = ({ user }: PanelHeaderProps) => {
         label: 'Đăng xuất',
         icon: LogOutIcon,
         onClick: () => {
-          removePosTerminal?.()
           signOut()
         },
       },
