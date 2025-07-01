@@ -18,6 +18,7 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
+    "composite": true,
     "paths": {
       "@src/*": ["./src/*"],
       "@modules/*": ["./src/modules/*"],
@@ -26,5 +27,6 @@
     "types": ["./sst-env.d.ts"],
     "noEmitOnError": false
   },
+  "references": [{ "path": "../shared" }],
   "include": ["src/**/*", "test/**/*", "sst-env.d.ts"]
 }

@@ -103,7 +103,7 @@ importers:
         specifier: ^7.8.1
         version: 7.8.2
       share:
-        specifier: file:../shared
+        specifier: workspace:*
         version: link:../shared
       sparkpost:
         specifier: ^2.1.4
